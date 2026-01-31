@@ -2,7 +2,7 @@
 
 #Task 1 - GC% Calculation
 
-#Assigned GC% calculator function
+#Initial GC% calculator function
 GC_percent <- function(input_gene) {{
   #split gene
   input_gene <- strsplit(x = input_gene, split = "")[[1]]
@@ -23,8 +23,10 @@ GC_percent <- function(input_gene) {{
 
 #Making it robust enough to handle nuc sequences written in upper and lower case
 GC_percent <- function(input_gene) {{
-  #normalize nucleotide case
+  #normalize nucleotide case (converts everything to UPPERCASE)
   input_gene <- toupper(input_gene)
+
+  #split the string into individual letters
   input_gene <- strsplit(x = input_gene, split = "")[[1]]
   
   #core operations
@@ -34,6 +36,7 @@ GC_percent <- function(input_gene) {{
       gc_counter = gc_counter+1}
   }
 }
+  #calculate the percentage                       
   (gc_counter / length(input_gene)) * 100
 }
 
@@ -67,5 +70,6 @@ Protein_MW <- function(protein_seq = "ESTHER") {
 #Task 2 question
 result <- Protein_MW()
 print(result)
+
 
 
